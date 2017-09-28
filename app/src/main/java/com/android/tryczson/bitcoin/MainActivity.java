@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mMainAdapter.addFragment(new DashBoardFragment(), "ETH");
         mMainAdapter.addFragment(new DashBoardFragment(), "LTC");
         mViewpager.setAllowedSwipeDirection(NoSwipeViewPager.SwipeDirection.none);
-        mViewpager.setOffscreenPageLimit(2);
+        mViewpager.setOffscreenPageLimit(1);
         mViewpager.setAdapter(mMainAdapter);
         mViewpager.setCurrentItem(0);
         mTab.setupWithViewPager(mViewpager);
@@ -70,16 +70,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
@@ -99,10 +95,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.wallet1) {
             Intent intent = new Intent(this, PersonalActivity.class);
             startActivity(intent);
+        } else if (id == R.id.buy) {
+            Intent intent = new Intent(this, BuyActivity.class);
+            startActivity(intent);
         }
-// else if (id == R.id.nav_gallery) {
-//
-//        } else if (id == R.id.nav_share) {
+
+// else if (id == R.id.nav_share) {
 //
 //        } else if (id == R.id.nav_send) {
 //
