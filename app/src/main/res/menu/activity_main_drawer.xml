@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/dashboard"
+            android:icon="@drawable/ic_chart"
+            android:title="Dashbroad" />
+        </group>
+
+    <item android:title="TRADE">
+    <menu>
+        <item
+            android:id="@+id/buy"
+            android:icon="@drawable/ic_buy"
+            android:title="Buy" />
+        <item
+            android:id="@+id/sell"
+            android:icon="@drawable/ic_sell"
+            android:title="Sell" />
+    </menu>
+    </item>
+
+    <item android:title="ACCOUNTS">
+        <menu>
+            <item
+                android:id="@+id/wallet1"
+                android:icon="@drawable/ic_wallet"
+                android:title="BTC Wallet" />
+            <item
+                android:id="@+id/wallet2"
+                android:icon="@drawable/ic_wallet"
+                android:title="LTC Wallet" />
+
+            <item
+                android:id="@+id/wallet3"
+                android:icon="@drawable/ic_wallet"
+                android:title="ETH Wallet" />
+        </menu>
+    </item>
+
+    <item android:title="MORE">
+        <menu>
+            <item
+                android:id="@+id/setting"
+                android:icon="@drawable/ic_setting"
+                android:title="Settings" />
+        </menu>
+    </item>
+
+</menu>
