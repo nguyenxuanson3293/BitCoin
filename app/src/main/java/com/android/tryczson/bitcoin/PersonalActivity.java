@@ -1,7 +1,7 @@
 package com.android.tryczson.bitcoin;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 public class PersonalActivity extends AppCompatActivity {
 
+    String type;
+    private TextView txtCoin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,6 +19,16 @@ public class PersonalActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        type = getIntent().getStringExtra("type");
+        txtCoin = (TextView) findViewById(R.id.coin);
+
+        if (type.equals("btc"))
+            txtCoin.setText("0 BTC");
+        else  if (type.equals("ltc"))
+            txtCoin.setText("0 LTC");
+        else  if (type.equals("eth"))
+            txtCoin.setText("0 ETH");
 
     }
     @Override

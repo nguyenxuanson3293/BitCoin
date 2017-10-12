@@ -1,5 +1,6 @@
 package com.android.tryczson.bitcoin;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,6 +9,7 @@ import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.XAxis;
@@ -15,6 +17,7 @@ import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.formatter.IFillFormatter;
 import com.github.mikephil.charting.interfaces.dataprovider.LineDataProvider;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
@@ -23,17 +26,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by tryczson on 28/09/2017.
+ * Created by tryczson on 29/09/2017.
  */
 
-public class ChartFragment extends Fragment {
+public class ETHChartFragment extends Fragment {
 
     private LineChart mChart;
+    private TextView btnBuy, btnSell;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_chart, container, false);
+        return inflater.inflate(R.layout.eth_chart, container, false);
     }
 
     @Override
@@ -61,7 +65,15 @@ public class ChartFragment extends Fragment {
         mChart.setMaxHighlightDistance(300);
 
         XAxis x = mChart.getXAxis();
-        x.setEnabled(false);
+        x.setEnabled(true);
+        x.setPosition(XAxis.XAxisPosition.BOTTOM_INSIDE);
+        x.setGranularity(1f);
+
+        IAxisValueFormatter xAxisFormatter = new DayAxisValueFormatter(mChart);
+        x.setValueFormatter(xAxisFormatter);
+        x.setDrawGridLines(false);
+        x.setTextColor(Color.WHITE);
+        x.setLabelCount(8, false);
 
         YAxis y = mChart.getAxisLeft();
         //y.setTypeface(mTfLight);
@@ -70,11 +82,13 @@ public class ChartFragment extends Fragment {
         y.setPosition(YAxis.YAxisLabelPosition.INSIDE_CHART);
         y.setDrawGridLines(false);
         y.setAxisLineColor(Color.WHITE);
+        MyAxisValueFormatter custom = new MyAxisValueFormatter();
+        y.setValueFormatter(custom);
 
         mChart.getAxisRight().setEnabled(false);
 
         // add data
-        setData(45, 100);
+        setData(30, 300);
 
         mChart.getLegend().setEnabled(false);
 
@@ -82,17 +96,44 @@ public class ChartFragment extends Fragment {
 
         // dont forget to refresh the drawing
         mChart.invalidate();
+
+        btnBuy = (TextView) view.findViewById(R.id.btnBuy);
+        btnSell = (TextView) view.findViewById(R.id.btnSell);
+
+        btnBuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), BuyActivity.class);
+                intent.putExtra("type", "eth");
+                startActivity(intent);
+            }
+        });
+
+        btnSell.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), SellActivity.class);
+                intent.putExtra("type", "eth");
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void setData(int count, float range) {
 
         ArrayList<Entry> yVals = new ArrayList<Entry>();
 
+        float Max = range ;
+        float Min = range - 50;
         for (int i = 0; i < count; i++) {
+
             float mult = (range + 1);
-            float val = (float) (Math.random() * mult) + 20;// + (float)
+            //float val = (float) (Math.random() * mult) + 20;// + (float)
             // ((mult *
             // 0.1) / 10);
+
+            float val = (float) (Min + Math.random()*(Max-Min));;
             yVals.add(new Entry(i, val));
         }
 
@@ -152,3 +193,4 @@ public class ChartFragment extends Fragment {
         }
     }
 }
+

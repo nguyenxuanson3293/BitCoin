@@ -6,4 +6,9 @@
         android:icon="@drawable/ic_notification"
         app:showAsAction="always"
         android:title="Notification" />
+
+    <item
+        android:id="@+id/qrcode4"
+        app:showAsAction="always"
+        android:title="" />
 </menu>

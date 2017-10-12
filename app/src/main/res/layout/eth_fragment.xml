@@ -38,7 +38,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="4064.0"
+                    android:text="284.6"
                     android:textColor="#ffffff"
                     android:textSize="22dp"
                     android:textStyle="bold" />
@@ -47,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="Bitcoin price"
+                android:text="Ethereum price"
                 android:textColor="@color/white"
                 android:textSize="12dp" />
         </LinearLayout>
@@ -90,7 +90,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="4065.5"
+                    android:text="286.55"
                     android:textColor="#ffffff"
                     android:textSize="22dp"
                     android:textStyle="bold" />

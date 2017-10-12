@@ -47,9 +47,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mTab = (TabLayout) findViewById(R.id.tablayout);
 
         mMainAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-        mMainAdapter.addFragment(new DashBoardFragment(), "BTC");
-        mMainAdapter.addFragment(new DashBoardFragment(), "ETH");
-        mMainAdapter.addFragment(new DashBoardFragment(), "LTC");
+        mMainAdapter.addFragment(new BTCDashBoardFragment(), "BTC");
+        mMainAdapter.addFragment(new ETHDashBoardFragment(), "ETH");
+        mMainAdapter.addFragment(new LTCDashBoardFragment(), "LTC");
         mViewpager.setAllowedSwipeDirection(NoSwipeViewPager.SwipeDirection.none);
         mViewpager.setOffscreenPageLimit(1);
         mViewpager.setAdapter(mMainAdapter);
@@ -94,17 +94,40 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.wallet1) {
             Intent intent = new Intent(this, PersonalActivity.class);
+            intent.putExtra("type", "btc");
+            startActivity(intent);
+        } else if (id == R.id.wallet2) {
+            Intent intent = new Intent(this, PersonalActivity.class);
+            intent.putExtra("type", "ltc");
+            startActivity(intent);
+        } else if (id == R.id.wallet3) {
+            Intent intent = new Intent(this, PersonalActivity.class);
+            intent.putExtra("type", "eth");
             startActivity(intent);
         } else if (id == R.id.buy) {
+            int i = mViewpager.getCurrentItem();
+            String type;
+            if (i == 0)
+                type = "btc";
+            else if (i == 1)
+                type = "eth";
+            else type = "ltc";
             Intent intent = new Intent(this, BuyActivity.class);
+            intent.putExtra("type", type);
+            startActivity(intent);
+        } else if (id == R.id.sell) {
+            int i = mViewpager.getCurrentItem();
+            String type;
+            if (i == 0)
+                type = "btc";
+            else if (i == 1)
+                type = "eth";
+            else type = "ltc";
+            Intent intent = new Intent(this, SellActivity.class);
+            intent.putExtra("type", type);
             startActivity(intent);
         }
 
-// else if (id == R.id.nav_share) {
-//
-//        } else if (id == R.id.nav_send) {
-//
-//        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

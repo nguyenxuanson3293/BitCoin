@@ -15,7 +15,11 @@ import com.android.tryczson.bitcoin.Customview.NoSwipeViewPager;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DashBoardFragment extends Fragment {
+/**
+ * Created by tryczson on 29/09/2017.
+ */
+
+public class ETHDashBoardFragment extends Fragment {
 
     private ViewPagerAdapter mMainAdapter;
     private NoSwipeViewPager mViewpager;
@@ -25,7 +29,7 @@ public class DashBoardFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_dash_board, container, false);
+        return inflater.inflate(R.layout.eth_fragment, container, false);
     }
 
     @Override
@@ -36,16 +40,16 @@ public class DashBoardFragment extends Fragment {
         mTab = (TabLayout) view.findViewById(R.id.tablayout2);
 
         mMainAdapter = new ViewPagerAdapter(getChildFragmentManager());
-        mMainAdapter.addFragment(new ChartFragment(), "1H");
-        mMainAdapter.addFragment(new Chart2Fragment(), "1D");
-        mMainAdapter.addFragment(new Chart2Fragment(), "1W");
-        mMainAdapter.addFragment(new Chart2Fragment(), "1M");
-        mMainAdapter.addFragment(new Chart2Fragment(), "1Y");
-        mMainAdapter.addFragment(new Chart2Fragment(), "ALL");
+        mMainAdapter.addFragment(new ETHChartFragment(), "1H");
+        mMainAdapter.addFragment(new ETHChartFragment(), "1D");
+        mMainAdapter.addFragment(new ETHChartFragment(), "1W");
+        mMainAdapter.addFragment(new ETHChartFragment(), "1M");
+        mMainAdapter.addFragment(new ETHChartFragment(), "1Y");
+        mMainAdapter.addFragment(new ETHChartFragment(), "ALL");
         mViewpager.setAllowedSwipeDirection(NoSwipeViewPager.SwipeDirection.none);
-        mViewpager.setOffscreenPageLimit(6);
+        mViewpager.setOffscreenPageLimit(2);
         mViewpager.setAdapter(mMainAdapter);
-        mViewpager.setCurrentItem(0);
+        mViewpager.setCurrentItem(2);
         mTab.setupWithViewPager(mViewpager);
     }
 
@@ -79,3 +83,4 @@ public class DashBoardFragment extends Fragment {
         }
     }
 }
+

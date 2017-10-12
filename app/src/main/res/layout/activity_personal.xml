@@ -62,11 +62,12 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/coin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:padding="5dp"
-                android:text="3.3506 BTC"
+                android:text="0 BTC"
                 android:textColor="@color/white"
                 android:textSize="30dp" />
 
@@ -75,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:padding="5dp"
-                android:text="$1,16932"
+                android:text="$0"
                 android:textColor="@color/white"
                 android:textSize="16dp" />
         </LinearLayout>
@@ -86,6 +87,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:orientation="horizontal"
+            android:layout_marginLeft="5dp"
             android:layout_marginRight="10dp"
             android:weightSum="10">
 
@@ -102,7 +104,7 @@
                     android:layout_gravity="center"
                     android:layout_margin="15dp"
                     app:civ_border="false"
-                    android:src="@drawable/ic_default_user_male" />
+                    android:src="@drawable/avatar" />
             </LinearLayout>
 
             <LinearLayout
@@ -149,6 +151,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:orientation="horizontal"
+            android:layout_marginLeft="3dp"
             android:layout_marginRight="10dp"
             android:weightSum="10">
 
@@ -159,13 +162,13 @@
                 android:layout_weight="2.5">
 
                 <com.mikhaellopez.circularimageview.CircularImageView
-                    android:id="@+id/circularImageView"
+                    android:id="@+id/circularImageView3"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:layout_margin="15dp"
                     app:civ_border="false"
-                    android:src="@drawable/ic_default_user_male" />
+                    android:src="@drawable/avatar" />
             </LinearLayout>
 
             <LinearLayout
@@ -219,6 +222,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:orientation="horizontal"
+            android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:weightSum="10">
 
@@ -234,7 +238,7 @@
                     android:layout_gravity="center"
                     android:layout_margin="15dp"
                     app:civ_border="false"
-                    android:src="@drawable/ic_default_user_male" />
+                    android:src="@drawable/avatar" />
             </LinearLayout>
 
             <LinearLayout
@@ -289,6 +293,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:orientation="horizontal"
+            android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:weightSum="10">
 
@@ -304,7 +309,7 @@
                     android:layout_gravity="center"
                     android:layout_margin="15dp"
                     app:civ_border="false"
-                    android:src="@drawable/ic_default_user_male" />
+                    android:src="@drawable/avatar2" />
             </LinearLayout>
 
             <LinearLayout

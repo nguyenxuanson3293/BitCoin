@@ -15,7 +15,7 @@
    <com.mikhaellopez.circularimageview.CircularImageView
        android:layout_width="70dp"
        android:layout_height="70dp"
-       android:src="@drawable/ic_default_user_male"
+       android:src="@drawable/avatar2"
        app:civ_border="false"/>
 
     <TextView

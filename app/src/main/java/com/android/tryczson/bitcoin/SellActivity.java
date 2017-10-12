@@ -10,19 +10,17 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class BuyActivity extends AppCompatActivity {
-
+public class SellActivity extends AppCompatActivity {
     private EditText edtBitCoin;
     private TextView txtFee, txtTotal;
     private String type;
     private TextView txtTitle, txtBuy, txtUnit;
-    private TextView txtPrice;
     private float price;
-
+    private TextView txtPrice;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_buy);
+        setContentView(R.layout.activity_sell);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -42,22 +40,22 @@ public class BuyActivity extends AppCompatActivity {
         txtPrice = (TextView) findViewById(R.id.price);
 
         if (type.equals("btc")) {
-            txtTitle.setText("Buy BitCoin");
-            txtBuy.setText("Buy BitCoin");
-            txtUnit.setText("BTC");
+            txtTitle.setText("Sell BitCoin");
+            txtBuy.setText("Sell BitCoin");
+            txtBuy.setText("BTC");
             txtPrice.setText("$4040 per coin");
             price = 4064f;
         }
         else if (type.equals("eth")) {
-            txtTitle.setText("Buy Ethereum");
-            txtBuy.setText("Buy Ethereum");
+            txtTitle.setText("Sell Ethereum");
+            txtBuy.setText("Sell Ethereum");
             txtUnit.setText("ETH");
             txtPrice.setText("$284 per coin");
             price = 284.6f;
         }
         else if (type.equals("ltc")) {
-            txtTitle.setText("Buy Litecoin");
-            txtBuy.setText("Buy Litecoin");
+            txtTitle.setText("Sell Litecoin");
+            txtBuy.setText("Sell Litecoin");
             txtUnit.setText("LTC");
             txtPrice.setText("$52 per coin");
             price = 51.66f;

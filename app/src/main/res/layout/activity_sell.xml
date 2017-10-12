@@ -23,7 +23,7 @@
             android:layout_marginTop="5dp"
             android:gravity="center"
             android:padding="5dp"
-            android:text="Buy Bitcoin"
+            android:text="Sell Bitcoin"
             android:textColor="@color/white"
             android:textSize="20dp"
             android:textStyle="bold" />
@@ -48,7 +48,7 @@
                 android:id="@+id/buycoin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Buy Bitcoin"
+                android:text="Sell Bitcoin"
                 android:textColor="#000000"
                 android:textSize="22dp" />
 
@@ -187,4 +187,5 @@
             android:background="#0D47A1"/>
 
     </LinearLayout>
+
 </RelativeLayout>
